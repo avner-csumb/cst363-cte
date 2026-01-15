@@ -192,7 +192,7 @@ WHERE (
 
 <br>
 
-- If a customer has no orders, the subquery returns NULL
+- If a customer has no orders, the subquery returns `NULL`
 - If we just compare that to $= 0$, the condition will never match, because `NULL = 0` is unknown in SQL’s three-valued logic
 - `COALESCE(expr, fallback)` replaces NULL with a fallback value.
 
@@ -234,7 +234,7 @@ layout: section
 
 1. `WITH` $→$ Defines the CTE.
 2. `AS` $→$ Assigns a name to the CTE and contains the subquery inside parentheses.
-3. main query $→$ Uses the CTE in a SELECT, INSERT, UPDATE, or DELETE statement.
+3. main query $→$ Uses the CTE in a `SELECT`, `INSERT`, `UPDATE`, or `DELETE` statement.
 
 </v-clicks>
 
@@ -341,12 +341,16 @@ JOIN qualifying_customers qc
 
 <div class="p-5">
 
+<v-clicks>
 
-- SQL standards (and most databases) require that all CTEs for a query are declared together in one WITH clause, separated by commas.
+- SQL standards (and most databases) require that all CTEs for a query are declared together in one `WITH` clause, separated by commas.
 - A later CTE can reference an earlier CTE 
 
+</v-clicks>
 
 <br>
+
+<v-click>
 
 ```sql
 WITH cte1 AS (...),
@@ -356,6 +360,7 @@ FROM cte1
 JOIN cte2 ON ...
 ```
 
+</v-click>
 
 </div>
 
